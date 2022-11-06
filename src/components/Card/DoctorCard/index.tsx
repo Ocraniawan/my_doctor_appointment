@@ -1,5 +1,5 @@
-import React from "react";
 import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 interface ListDoctors {
   listDoctors: Array<Doctor>;
@@ -24,7 +24,7 @@ export default function DoctorCard(props: ListDoctors) {
       <div className="w-full">
         {listDoctors &&
           listDoctors.map((doctor, idx) => (
-            <div className="w-1/2 md:w-1/4 inline-grid p-2">
+            <div key={idx} className="w-1/2 md:w-1/4 inline-grid p-2">
               <div className="border rounded-2xl text-start">
                 <div>
                   <img
@@ -34,7 +34,7 @@ export default function DoctorCard(props: ListDoctors) {
                   />
                 </div>
                 <div className="p-4">
-                  <h1 className="text-lg md:text-2xl font-bold">
+                  <h1 className="text-base md:text-xl font-bold">
                     Dr. Ocraniawan Patattan
                   </h1>
                   <span className="text-xs text-[#717579] ">
@@ -44,10 +44,12 @@ export default function DoctorCard(props: ListDoctors) {
                     Lorem Ipsum dolor sir amet, loremipsum dolor sir amet, lorem
                     ipsum dolor sir amet
                   </p>
-                  <button className="bg-primary text-sm h-10 rounded-xl text-white w-fit px-4 text-center items-center flex font-semibold">
-                    More Details &nbsp;
-                    <BsArrowRight />
-                  </button>
+                  <Link to={`/detail-doctor/${doctor.id}`}>
+                    <button className="bg-primary text-sm mt-4 h-10 rounded-xl text-white w-fit px-4 text-center items-center flex font-semibold">
+                      More Details &nbsp;
+                      <BsArrowRight />
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

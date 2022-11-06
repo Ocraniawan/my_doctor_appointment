@@ -1,0 +1,21 @@
+.wrap-doctor {
+  background-image: linear-gradient(
+    to left top,
+    #ffa5ca,
+    #e5c2f4,
+    #d0dcff,
+    #d6efff,
+    #f4fcfd
+  );
+}
+
+.nav-bg {
+  background-image: linear-gradient(
+    to left top,
+    #ffa7cb,
+    #e6c3f4,
+    #d1dcff,
+    #d7efff,
+    #f4fcfd
+  );
+}
