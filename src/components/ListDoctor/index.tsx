@@ -8,7 +8,6 @@ export default function ListDoctors() {
     doctorsAPIs.getlistDoctor().then((res) => {
       let data = res.data;
       setListDoctors(data);
-      console.log(data, "data response");
     });
   }, []);
 

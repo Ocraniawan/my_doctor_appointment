@@ -22,8 +22,8 @@ export default function Navbar() {
   return (
     <div className="sticky top-0 z-50 bg-secondary">
       <div className="flex justify-between items-center">
-        <div className="m-2 mx-8 px-4 py-2 bg-primary rounded-2xl text-white text-sm h-12 hidden md:block">
-          <span className="text-2xl font-bold text-white ">N</span>
+        <div className="m-2 mx-8 px-4 py-2 bg-primary rounded-full text-white text-sm h-12 hidden md:block ml-20">
+          <span className="text-2xl font-bold text-white">N</span>
         </div>
         <div className="flex justify-center md:justify-end text-lg py-6 px-8">
           {navbarMenu.map((nav, idx) => (

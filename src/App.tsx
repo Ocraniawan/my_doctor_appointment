@@ -3,6 +3,7 @@ import Home from "./pages/HomePage";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import DetailDoctor from "./pages/DetailDoctorPage";
+import MyBooking from "./pages/MyBooking";
 import "./App.css";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detail-doctor/:id" element={<DetailDoctor />} />
+            <Route path="/my-booking" element={<MyBooking />} />
           </Routes>
         </div>
         <Footer />
