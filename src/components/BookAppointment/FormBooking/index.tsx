@@ -63,8 +63,20 @@ export default function FormBooking(props: BookingProps) {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    props.submit("data");
-    console.log("submitted");
+    let data = {
+      name: name,
+      start: timeBooking,
+      date: dateBooking,
+      status: "confirmed",
+    };
+    props.submit(data);
+    clearForm();
+  };
+
+  const clearForm = () => {
+    setName("");
+    setDateBooking("");
+    setTimeBooking(0);
   };
 
   return (
@@ -156,8 +168,9 @@ export default function FormBooking(props: BookingProps) {
           </div>
           <div className="pt-4">
             <button
+              disabled={!dateBooking || invalidDate || invalidTime}
               type="submit"
-              className="float-right bg-primary text-sm h-10 rounded-xl text-white w-fit px-10 text-center items-center flex font-semibold"
+              className="float-right bg-primary text-sm h-10 rounded-xl text-white w-fit px-10 text-center items-center flex font-semibold disabled:bg-gray-300"
             >
               Book
             </button>

@@ -8,9 +8,9 @@ const getDoctorById = (id: string) => {
   return instance.get(`/doctor/${id}`);
 };
 
-const flickrAPIs = {
+const doctorsAPIs = {
   getlistDoctor,
   getDoctorById,
 };
 
-export default flickrAPIs;
+export default doctorsAPIs;

@@ -1,81 +1,17 @@
 import DoctorCard from "../Card/DoctorCard";
-
-const listDoctors = [
-  {
-    id: "string",
-    name: "string",
-    description: "string",
-    address: {
-      line_1: "string",
-      line_2: "string",
-      district: "string",
-    },
-    opening_hours: [
-      {
-        start: "string",
-        end: "string",
-        isClosed: true,
-        day: "MON",
-      },
-    ],
-  },
-  {
-    id: "string",
-    name: "string",
-    description: "string",
-    address: {
-      line_1: "string",
-      line_2: "string",
-      district: "string",
-    },
-    opening_hours: [
-      {
-        start: "string",
-        end: "string",
-        isClosed: true,
-        day: "MON",
-      },
-    ],
-  },
-  {
-    id: "string",
-    name: "string",
-    description: "string",
-    address: {
-      line_1: "string",
-      line_2: "string",
-      district: "string",
-    },
-    opening_hours: [
-      {
-        start: "string",
-        end: "string",
-        isClosed: true,
-        day: "MON",
-      },
-    ],
-  },
-  {
-    id: "string",
-    name: "string",
-    description: "string",
-    address: {
-      line_1: "string",
-      line_2: "string",
-      district: "string",
-    },
-    opening_hours: [
-      {
-        start: "string",
-        end: "string",
-        isClosed: true,
-        day: "MON",
-      },
-    ],
-  },
-];
+import { useState, useEffect } from "react";
+import doctorsAPIs from "../../services/DoctorServices";
 
 export default function ListDoctors() {
+  const [listDoctors, setListDoctors] = useState();
+  useEffect(() => {
+    doctorsAPIs.getlistDoctor().then((res) => {
+      let data = res.data;
+      setListDoctors(data);
+      console.log(data, "data response");
+    });
+  }, []);
+
   return (
     <div className="mb-14 text-center">
       <div className="p-4">
@@ -86,9 +22,11 @@ export default function ListDoctors() {
           your problem
         </p>
       </div>
-      <div className="md:px-12">
-        <DoctorCard listDoctors={listDoctors} />
-      </div>
+      {listDoctors && (
+        <div className="md:px-12">
+          <DoctorCard listDoctors={listDoctors} />
+        </div>
+      )}
     </div>
   );
 }

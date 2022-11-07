@@ -35,10 +35,10 @@ export default function DoctorCard(props: ListDoctors) {
                 </div>
                 <div className="p-4">
                   <h1 className="text-base md:text-xl font-bold">
-                    Dr. Ocraniawan Patattan
+                    {doctor.name}
                   </h1>
                   <span className="text-xs text-[#717579] ">
-                    Sulawesi Selatan
+                    {doctor.address.district}
                   </span>
                   <p className="my-3 text-sm hidden md:block">
                     Lorem Ipsum dolor sir amet, loremipsum dolor sir amet, lorem
