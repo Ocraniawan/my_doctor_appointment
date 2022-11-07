@@ -5,6 +5,8 @@ interface ModalProps {
   title: string;
   messages: string;
   handleModal: any;
+  isConfirm?: boolean | false;
+  handleConfirm?: any;
 }
 
 export default function Modals(props: ModalProps) {
@@ -13,6 +15,10 @@ export default function Modals(props: ModalProps) {
   const handleClose = () => {
     props.handleModal(false);
     setIsopen(false);
+  };
+
+  const handleConfirm = () => {
+    props.handleConfirm();
   };
 
   useEffect(() => {
@@ -32,12 +38,22 @@ export default function Modals(props: ModalProps) {
         <div className="text-base py-4 text-gray-700 font-medium w-2/3 inline-grid">
           <p>{props.messages}</p>
         </div>
-        <button
-          onClick={handleClose}
-          className="my-1 bg-primary text-white w-1/2 py-2 rounded-2xl"
-        >
-          OK
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={handleConfirm}
+            className={`my-1 bg-primary text-white w-1/2 py-2 rounded-2xl mx-2 ${
+              props.isConfirm ? "block" : "hidden"
+            }`}
+          >
+            Yes
+          </button>
+          <button
+            onClick={handleClose}
+            className="my-1 bg-white text-primary border border-primary w-1/2 py-2 rounded-2xl mx-2"
+          >
+            {props.isConfirm ? "Cancel" : "OK"}
+          </button>
+        </div>
       </div>
     </div>
   );

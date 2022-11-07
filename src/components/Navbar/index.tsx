@@ -4,7 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 const navbarMenu = [
   { name: "Home", route: "/" },
   { name: "My Booking", route: "/my-booking" },
-  { name: "About Us", route: "/about" },
+  { name: "About Us", route: "/#" },
 ];
 
 export default function Navbar() {
